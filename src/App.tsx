@@ -62,11 +62,11 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
       {/* Top Countdown Banner */}
-      <div className="bg-blue-600 text-white py-2 px-4 sticky top-0 z-[60] shadow-md border-b border-blue-500">
+      <div className="bg-red-600 text-white py-2 px-4 sticky top-0 z-[60] shadow-md border-b border-red-500">
         <div className="container mx-auto flex items-center justify-center gap-4 text-sm md:text-base font-bold italic">
           <Clock className="w-5 h-5 animate-pulse" />
           <p className="uppercase tracking-tighter">OFERTA POR TEMPO LIMITADO:</p>
-          <span className="bg-white text-blue-600 px-3 py-0.5 rounded-md font-mono text-lg shadow-inner">
+          <span className="bg-white text-red-600 px-3 py-0.5 rounded-md font-mono text-lg shadow-inner">
             {formatTime(timeLeft)}
           </span>
         </div>
@@ -147,7 +147,8 @@ export default function App() {
               className="mt-10 flex flex-col items-center gap-4"
             >
               <button 
-                onClick={scrollToArsenal}
+                type="button"
+                onClick={() => scrollToArsenal()}
                 className="w-full max-w-2xl px-10 py-7 text-2xl md:text-3xl font-black text-white bg-green-600 rounded-[24px] shadow-[0_20px_40px_-10px_rgba(22,163,74,0.4)] hover:bg-green-700 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-4 group uppercase tracking-tight animate-pulse"
               >
                 EU QUERO MINHAS DINÂMICAS INFANTIS!
@@ -228,7 +229,8 @@ export default function App() {
 
             <div className="mt-16 flex justify-center">
               <button 
-                onClick={scrollToArsenal}
+                type="button"
+                onClick={() => scrollToArsenal()}
                 className="px-10 py-5 bg-green-500 text-white font-black rounded-2xl shadow-xl hover:bg-green-600 transition-all uppercase tracking-tight flex items-center gap-2 group"
               >
                 Garantir meu acesso agora
@@ -270,7 +272,8 @@ export default function App() {
 
           <div className="mt-16 flex justify-center">
             <button 
-              onClick={scrollToArsenal}
+              type="button"
+              onClick={() => scrollToArsenal()}
               className="px-10 py-5 bg-green-500 text-white font-black rounded-2xl shadow-xl hover:bg-green-600 transition-all uppercase tracking-tight flex items-center gap-2 group"
             >
               Sim, eu quero transformar minhas aulas!
@@ -311,7 +314,8 @@ export default function App() {
 
             <div className="mt-16 flex justify-center">
               <button 
-                onClick={scrollToArsenal}
+                type="button"
+                onClick={() => scrollToArsenal()}
                 className="px-10 py-5 bg-green-500 text-white font-black rounded-2xl shadow-xl hover:bg-green-600 transition-all uppercase tracking-tight flex items-center gap-2 group"
               >
                 Quero o Arsenal do Sensei agora!
@@ -408,7 +412,8 @@ export default function App() {
                 </li>
               </ul>
               <button 
-                onClick={() => window.open('https://pay.hotmart.com/G105592758R?bid=1777391554797', '_blank')}
+                type="button"
+                onClick={() => { window.location.href = 'https://pay.hotmart.com/G105592758R?bid=1777391554797' + window.location.search; }}
                 className="w-full py-5 px-6 rounded-2xl bg-green-500 text-white font-black text-xl hover:bg-green-600 shadow-lg shadow-green-100 transition-all uppercase flex items-center justify-center gap-2"
               >
                 <Check className="w-6 h-6 shrink-0" />
@@ -494,7 +499,8 @@ export default function App() {
                 </li>
               </ul>
               <button 
-                onClick={() => window.open('https://pay.hotmart.com/N105591989C?bid=1777391400406', '_blank')}
+                type="button"
+                onClick={() => { window.location.href = 'https://pay.hotmart.com/N105591989C?bid=1777391400406' + window.location.search; }}
                 className="w-full py-6 px-6 rounded-2xl bg-green-500 text-white font-black text-xl md:text-2xl hover:bg-green-600 hover:scale-[1.02] shadow-xl shadow-green-100 transition-all uppercase flex items-center justify-center gap-2"
               >
                 <Check className="w-6 h-6 md:w-8 md:h-8 shrink-0" />
@@ -623,7 +629,8 @@ export default function App() {
 
         <div className="mt-16 flex justify-center">
           <button 
-            onClick={scrollToArsenal}
+            type="button"
+            onClick={() => scrollToArsenal()}
             className="px-10 py-6 bg-green-600 text-white font-black rounded-2xl shadow-2xl hover:bg-green-700 transition-all uppercase text-xl md:text-2xl tracking-tight flex items-center gap-2 group"
           >
             GARANTIR MINHAS DINÂMICAS COM RISCO ZERO
@@ -681,7 +688,8 @@ export default function App() {
 
         <div className="mt-16 flex justify-center">
           <button 
-            onClick={scrollToArsenal}
+            type="button"
+            onClick={() => scrollToArsenal()}
             className="px-10 py-5 bg-green-500 text-white font-black rounded-2xl shadow-xl hover:bg-green-600 transition-all uppercase tracking-tight flex items-center gap-2 group"
           >
             Começar agora com Fabio Souza Tanaka
@@ -711,7 +719,8 @@ export default function App() {
 
           <div className="mt-16 flex justify-center">
             <button 
-              onClick={scrollToArsenal}
+              type="button"
+              onClick={() => scrollToArsenal()}
               className="px-10 py-5 bg-green-500 text-white font-black rounded-2xl shadow-xl hover:bg-green-600 transition-all uppercase tracking-tight flex items-center gap-2 group"
             >
               Ainda com dúvida? Clique e comece já!
