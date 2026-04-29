@@ -105,18 +105,20 @@ export default function App() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mt-8 mx-auto max-w-sm rounded-[32px] overflow-hidden shadow-2xl border-4 border-white aspect-[9/16] bg-slate-200 relative group"
+              className="mt-8 mx-auto max-w-sm rounded-[32px] overflow-hidden shadow-2xl border-4 border-white aspect-[9/16] bg-black relative group"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1552072805-2a9039d00e57?auto=format&fit=crop&q=80&w=1200" 
-                alt="Karate Infantil Class" 
+              <video 
+                src="https://res.cloudinary.com/dgncwrnvw/video/upload/v1777408913/vsl_karate_eiwc4e.mp4"
                 className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-all cursor-pointer">
-                <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-                  <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[20px] border-l-white border-b-[10px] border-b-transparent ml-1"></div>
-                </div>
-              </div>
+                controls
+                controlsList="nodownload"
+                onContextMenu={(e) => e.preventDefault()}
+                playsInline
+                loop
+                muted={false}
+              >
+                Seu navegador não suporta vídeos.
+              </video>
             </motion.div>
 
             {/* Karate Level Badges */}
@@ -147,6 +149,7 @@ export default function App() {
               className="mt-10 flex flex-col items-center gap-4"
             >
               <button 
+                id="btn-scroll-hero"
                 type="button"
                 onClick={() => scrollToArsenal()}
                 className="w-full max-w-2xl px-10 py-7 text-2xl md:text-3xl font-black text-white bg-green-600 rounded-[24px] shadow-[0_20px_40px_-10px_rgba(22,163,74,0.4)] hover:bg-green-700 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-4 group uppercase tracking-tight animate-pulse"
@@ -170,10 +173,12 @@ export default function App() {
           <div className="relative max-w-4xl mx-auto">
             <div className="flex items-center gap-4">
               <button 
+                id="btn-slider-prev"
+                type="button"
                 className="hidden md:flex w-14 h-14 items-center justify-center bg-white border border-slate-200 rounded-full hover:bg-slate-50 shadow-sm z-10 shrink-0 transition-transform active:scale-90"
                 onClick={() => {
                   const slider = document.getElementById('product-slider');
-                  if (slider) slider.scrollBy({ left: -window.innerWidth > 768 ? -600 : -320, behavior: 'smooth' });
+                  if (slider) slider.scrollBy({ left: window.innerWidth > 768 ? -600 : -320, behavior: 'smooth' });
                 }}
               >
                 <ChevronLeft className="w-8 h-8 text-slate-400" />
@@ -206,10 +211,12 @@ export default function App() {
               </div>
 
               <button 
+                id="btn-slider-next"
+                type="button"
                 className="hidden lg:flex w-14 h-14 items-center justify-center bg-white border border-slate-200 rounded-full hover:bg-slate-50 shadow-sm z-10 shrink-0 transition-transform active:scale-90"
                 onClick={() => {
                   const slider = document.getElementById('product-slider');
-                  if (slider) slider.scrollBy({ left: 600, behavior: 'smooth' });
+                  if (slider) slider.scrollBy({ left: window.innerWidth > 768 ? 600 : 320, behavior: 'smooth' });
                 }}
               >
                 <ChevronRight className="w-8 h-8 text-slate-400" />
@@ -229,6 +236,7 @@ export default function App() {
 
             <div className="mt-16 flex justify-center">
               <button 
+                id="btn-guarantee-access"
                 type="button"
                 onClick={() => scrollToArsenal()}
                 className="px-10 py-5 bg-green-500 text-white font-black rounded-2xl shadow-xl hover:bg-green-600 transition-all uppercase tracking-tight flex items-center gap-2 group"
@@ -272,6 +280,7 @@ export default function App() {
 
           <div className="mt-16 flex justify-center">
             <button 
+              id="btn-audience-transform"
               type="button"
               onClick={() => scrollToArsenal()}
               className="px-10 py-5 bg-green-500 text-white font-black rounded-2xl shadow-xl hover:bg-green-600 transition-all uppercase tracking-tight flex items-center gap-2 group"
@@ -314,6 +323,7 @@ export default function App() {
 
             <div className="mt-16 flex justify-center">
               <button 
+                id="btn-need-arsenal"
                 type="button"
                 onClick={() => scrollToArsenal()}
                 className="px-10 py-5 bg-green-500 text-white font-black rounded-2xl shadow-xl hover:bg-green-600 transition-all uppercase tracking-tight flex items-center gap-2 group"
@@ -412,6 +422,7 @@ export default function App() {
                 </li>
               </ul>
               <button 
+                id="btn-buy-base"
                 type="button"
                 onClick={() => { window.location.href = 'https://pay.hotmart.com/G105592758R?bid=1777391554797' + window.location.search; }}
                 className="w-full py-5 px-6 rounded-2xl bg-green-500 text-white font-black text-xl hover:bg-green-600 shadow-lg shadow-green-100 transition-all uppercase flex items-center justify-center gap-2"
@@ -499,6 +510,7 @@ export default function App() {
                 </li>
               </ul>
               <button 
+                id="btn-buy-premium"
                 type="button"
                 onClick={() => { window.location.href = 'https://pay.hotmart.com/N105591989C?bid=1777391400406' + window.location.search; }}
                 className="w-full py-6 px-6 rounded-2xl bg-green-500 text-white font-black text-xl md:text-2xl hover:bg-green-600 hover:scale-[1.02] shadow-xl shadow-green-100 transition-all uppercase flex items-center justify-center gap-2"
@@ -527,7 +539,7 @@ export default function App() {
           <div className="text-center mb-12">
             <motion.div {...fadeIn} className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-100 rounded-full text-green-700 text-sm font-bold mb-6">
               <Star className="w-4 h-4 fill-green-500 text-green-500" />
-              Mais de 9.435 Senseis já utilizam
+              Mais de 2.500 Senseis já utilizam
             </motion.div>
             <motion.h2 {...fadeIn} className="text-4xl md:text-5xl font-black uppercase tracking-tight">
               O que dizem os <span className="text-green-500 italic">Senseis</span>
@@ -537,6 +549,8 @@ export default function App() {
           <div className="relative max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-4 md:gap-8">
               <button 
+                id="btn-testimonial-prev-desktop"
+                type="button"
                 onClick={prevReview}
                 className="hidden md:flex shrink-0 w-12 h-12 items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors shadow-lg z-10"
               >
@@ -573,6 +587,8 @@ export default function App() {
               </div>
   
               <button 
+                id="btn-testimonial-next-desktop"
+                type="button"
                 onClick={nextReview}
                 className="hidden md:flex shrink-0 w-12 h-12 items-center justify-center bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors shadow-lg z-10"
               >
@@ -583,6 +599,8 @@ export default function App() {
             {/* Mobile Carousel Controls */}
             <div className="flex md:hidden justify-center items-center gap-8 mt-8">
               <button 
+                id="btn-testimonial-prev-mobile"
+                type="button"
                 onClick={prevReview}
                 className="w-12 h-12 flex items-center justify-center bg-white border border-slate-200 rounded-full shadow-sm"
               >
@@ -597,6 +615,8 @@ export default function App() {
                 ))}
               </div>
               <button 
+                id="btn-testimonial-next-mobile"
+                type="button"
                 onClick={nextReview}
                 className="w-12 h-12 flex items-center justify-center bg-white border border-slate-200 rounded-full shadow-sm"
               >
@@ -629,6 +649,7 @@ export default function App() {
 
         <div className="mt-16 flex justify-center">
           <button 
+            id="btn-guarantee-risk-free"
             type="button"
             onClick={() => scrollToArsenal()}
             className="px-10 py-6 bg-green-600 text-white font-black rounded-2xl shadow-2xl hover:bg-green-700 transition-all uppercase text-xl md:text-2xl tracking-tight flex items-center gap-2 group"
@@ -688,6 +709,7 @@ export default function App() {
 
         <div className="mt-16 flex justify-center">
           <button 
+            id="btn-start-now-sensei"
             type="button"
             onClick={() => scrollToArsenal()}
             className="px-10 py-5 bg-green-500 text-white font-black rounded-2xl shadow-xl hover:bg-green-600 transition-all uppercase tracking-tight flex items-center gap-2 group"
@@ -719,6 +741,7 @@ export default function App() {
 
           <div className="mt-16 flex justify-center">
             <button 
+              id="btn-faq-start"
               type="button"
               onClick={() => scrollToArsenal()}
               className="px-10 py-5 bg-green-500 text-white font-black rounded-2xl shadow-xl hover:bg-green-600 transition-all uppercase tracking-tight flex items-center gap-2 group"
@@ -734,9 +757,6 @@ export default function App() {
       <footer className="py-16 bg-slate-900 text-slate-400 border-t border-slate-800">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-white font-black text-xl mb-4 italic uppercase tracking-widest">150 Dinâmicas Interativas De Karatê</h3>
-          <p className="max-w-md mx-auto mb-8 text-xs font-medium leading-relaxed opacity-60">
-            Aperfeiçoamento constante e aplicação técnica dependem do empenho individual de cada Sensei e instrutor.
-          </p>
           <div className="flex justify-center gap-12 text-xs font-bold uppercase tracking-[0.2em] mb-12">
             <a href="#" className="hover:text-blue-500 transition-colors">Termos</a>
             <a href="#" className="hover:text-blue-500 transition-colors">Privacidade</a>
